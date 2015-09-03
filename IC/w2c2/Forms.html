@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <style>
+
+    header {
+      text-align:center;
+      padding:5px;
+      border-style:double;
+      border-width:4px;
+    }
+    nav {
+      float:top;
+      border-style:double;
+      border-width:4px;
+    }
+    section {
+      float:center;
+      margin:0px;
+      padding:0px;
+    }
+    footer {
+      clear:both;
+      text-align:center;
+      border-style:double;
+      border-width:4px;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Johny's Cool Website</h1>
+</header>
+
+<nav>
+  <a href="Home.html">Home</a>
+  <a href="Forms.html">Forms</a>
+</nav>
+
+<section>
+  <table border="1" width="100%">
+    <td width="25%"><center>
+      <b>Forms Summary</b>
+      <p>
+        HTML supports several different types of input.
+      </p>
+    </center>
+    </td>
+    <td>
+      <b>Forms Page</b>
+      <p>The following is a text input:</p>
+      <form action="Forms.html" method="post">
+        Username:
+        <input type="text" name="username">
+      <p>Then a password input:</p>
+        Password:
+        <input type="password" name="password">
+      <br>
+      Radio Buttons:
+      <br><br>
+        <input type="radio" name="sex" value="male">Male
+        <br>
+        <input type="radio" name="sex" value="female">Female
+      <br><br>
+      Checkboxes:
+      <br><br>
+        <input type="checkbox" name="os" value="Windows"> Windows<br>
+        <input type="checkbox" name="os" value="OS X"> OS X<br>
+        <input type="checkbox" name="os" value="Linux"> Linux<br>
+      <br>
+      Submit button to send form data
+      <br><br>
+        <input type="submit" value="Submit">
+      </form>
+    </td>
+  </table>
+</section>
+
+<footer>
+  Copyright (C) Johny Zheng
+</footer>
+
+</body>
+</html>
