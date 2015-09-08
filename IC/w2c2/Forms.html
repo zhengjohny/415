@@ -2,31 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <style>
-
-    header {
-      text-align:center;
-      padding:5px;
-      border-style:double;
-      border-width:4px;
-    }
-    nav {
-      float:top;
-      border-style:double;
-      border-width:4px;
-    }
-    section {
-      float:center;
-      margin:0px;
-      padding:0px;
-    }
-    footer {
-      clear:both;
-      text-align:center;
-      border-style:double;
-      border-width:4px;
-    }
-  </style>
+  <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Tangerine">
+  <link rel="stylesheet" type="text/css" href="layout.css">
 </head>
 <body>
 
@@ -39,16 +16,15 @@
   <a href="Forms.html">Forms</a>
 </nav>
 
+<div id="container">
+<aside>
+  <b>Forms Summary</b>
+  <p>
+    HTML supports several different types of input.
+  </p>
+</aside>
+
 <section>
-  <table border="1" width="100%">
-    <td width="25%"><center>
-      <b>Forms Summary</b>
-      <p>
-        HTML supports several different types of input.
-      </p>
-    </center>
-    </td>
-    <td>
       <b>Forms Page</b>
       <p>The following is a text input:</p>
       <form action="Forms.html" method="post">
@@ -74,9 +50,8 @@
       <br><br>
         <input type="submit" value="Submit">
       </form>
-    </td>
-  </table>
 </section>
+</div>
 
 <footer>
   Copyright (C) Johny Zheng
