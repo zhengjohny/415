@@ -1,0 +1,35 @@
+.container-fluid {
+
+}
+body {
+  background: url("http://vignette1.wikia.nocookie.net/josh100lubu/images/4/40/18360-doge-doge-simple.jpg/revision/latest?cb=20150626051745") no-repeat;
+}
+header {
+  height: 25vh;
+  border-bottom: solid;
+}
+nav {
+  float: top;
+  padding-bottom: 25px;
+  padding-top: 25px;
+  border-bottom: solid;
+}
+aside {
+  float: left;
+  width: 25%;
+  height: 200px;
+  display: flex;
+  text-align: center;
+}
+section {
+  float: right;
+  width: 74%;
+  height: 200px;
+  border-left: 1px solid red;
+}
+footer {
+  padding-bottom: 50px;
+  border-top: 1px solid;
+  border-bottom: 1px solid;
+  clear: both;
+}
