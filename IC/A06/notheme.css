@@ -1,0 +1,17 @@
+.page-header {
+  height: 25%;
+  min-height: 25%;
+  font-family: 'Tangerine', serif;
+  font-size: 200px;
+  text-align:center;
+}
+.nav {
+  height: 50px;
+}
+body{
+  background: url("http://cdn.superbwallpapers.com/wallpapers/meme/doge-pattern-27481-2880x1800.jpg") no-repeat   center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
