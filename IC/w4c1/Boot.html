@@ -38,8 +38,8 @@
 </nav>
 
 <div class="row" style="max-width: 100%">
-  <div class="col-md-3 col-md-3" onmouseout="changeBorder()" onmouseover="difBorder()" id="sumDivBor">
-    <h2 onclick="textColor()" class="text-center">Summary</h2>
+  <div class="col-md-3 col-md-3" id="sumDivBor" onmouseover="defBorder()" onmouseout="changeBorder()" onclick="changeText()">
+    <h2 style="text-align: center">Summary</h2>
   </div>
   <div class="col-md-9 col-md-9" style="border: 1px blue dashed; padding-bottom: 10px;">
     <h2>Content</h2>
@@ -104,13 +104,13 @@
 </body>
 <script>
   function changeBorder() {
-    document.getElementById("sumDivBor").style.border= "double red";
+      document.getElementById("sumDivBor").style.border ="1px dashed red";
   }
-  function difBorder() {
-    document.getElementById("sumDivBor").style.border= "single black";
+  function defBorder() {
+    document.getElementById("sumDivBor").style.borderColor="green";
   }
-  function textColor(id) {
-    id.innerHTML = "More Summary";
+  function changeText() {
+    document.getElementById("sumDivBor").innerHTML="More Summary";
   }
 </script>
 </html>
