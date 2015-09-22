@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+  <!-- Optional theme -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+  <title>jQuery</title>
+
+  <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+  <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+</head>
+<body>
+<div id="one">
+Click Here.
+</div>
+<div id="two" style="border: double">
+<br>
+</div>
+<div id="three" style="border: dashed">
+<br>
+</div>
+<script>
+  $(document).ready(function(){
+    $("#one").click(function(){
+      $(this).hide();
+    });
+    $("#two").mouseenter(function(){
+      $(this).css("background-color", "blue");
+    });
+    $("#three").mouseleave(function(){
+      $(this).css("border", "#ccc");
+    });
+  });
+</script>
+<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+</body>
+</html>
