@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+  <text id="error"> </text>
+  <form name="myForm" action="demo_form.html" onsubmit="return validateForm()" method="get">
+    <div class="form-group">
+      <label for="username">User name: </label>
+      <input type="text" name="name" id="username">
+    </div>
+    <div class="form-group">
+      <label for="email">Email: </label>
+      <input type="email" name="email" id="email">
+    </div>
+    <div class="form-group">
+      <label for="password">Password: </label>
+      <input type="password" name="password" id="password">
+    </div>
+    <div class="form-group">
+      <label for="confirm">Confirm Password: </label>
+      <input type="password" name="confirm" id="confirm">
+    </div>
+    <input type="submit" value="Submit">
+  </form>
+</body>
+<script>
+  function validateForm() {
+    var un = document.forms["myForm"]["username"].value;
+    var em = document.forms["myForm"]["email"].value;
+    var pw = document.forms["myForm"]["password"].value;
+    var cp = document.forms["myForm"]["confirm"].value;
+    var message = "";
+
+    if (un == "" || un == null) {
+      document.getElementById("username").style.backgroundColor = "red";
+      message += "Username, ";
+    }
+    if (em == "" || em == null) {
+      document.getElementById("email").style.backgroundColor = "red";
+      message += "Email, ";
+    }
+    if (pw == "" || pw == null) {
+      document.getElementById("password").style.backgroundColor = "red";
+      message += "Password, ";
+    }
+    if (cp == "" || cp == null) {
+      document.getElementById("confirm").style.backgroundColor = "red";
+      document.getElementById("error").innerHTML = message + "Confirmation password is missing.";
+      return false;
+    }
+    if (pw != cp) {
+      document.getElementById("password").style.backgroundColor = "red";
+      document.getElementById("confirm").style.backgroundColor = "red";
+      message = "Passwords are not the same.";
+      document.getElementById("error").innerHTML = message;
+      return false;
+    }
+  }
+</script>
+</html>
