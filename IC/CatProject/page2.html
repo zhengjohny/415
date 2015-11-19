@@ -1,0 +1,71 @@
+<html lang="en">
+<head>
+  <link rel="stylesheet" type="text/css" href="layout.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kevin's Cool Website</title>
+</head>
+<body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<div class="page-header">
+  <h1>Kevin's Cool Website</h1>
+</div>
+<nav role="navigation" class="navbar navbar-default">
+  <div class="navbar-header">
+    <button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+  </div>
+  <div id="navbarCollapse" class="collapse navbar-collapse">
+    <ul class="nav navbar-nav">
+      <li><a href="page1.html">Home</a></li>
+      <li class="active"><a href="page2.html">Forms</a></li>
+      <li><a href="page3.html">WOW</a></li>
+    </ul>
+  </div>
+</nav>
+<div class="row">
+  <div class="col-lg-3" style="text-align:center">
+    <br><b>Forms Summary</b><br><br>
+    HTML supports several different types of<br>
+    input.
+  </div>
+  <div class="col-lg-9">
+    <b><h3>Forms Page</h3></b>
+    <form action="page2.html" method="get">
+      Username: <input type="text" name="username"><br><br>
+      Password: <input type="password" name="password"><br><br>
+      Email: <input type="email" name="email"><br><br>
+      Date: <input type="date" name="date"><br><br>
+      Time: <input type="datetime" name="time"><br><br>
+      Favorite Color: <input type="color" name="color"><br><br>
+      Month and Year: <input type="month" name="month"><br><br>
+      Favorite Number: <input type="number" name="number"><br><br>
+      Range: <input type="range" name="range"><br><br>
+      Search: <input type="search" name="range"><br><br>
+      URL: <input type="url" name="url"><br><br>
+      Radio Buttons:<br><br>
+      <input type="radio" name="gender" value="male">Male<br>
+      <input type="radio" name="gender" value="female">Female<br><br>
+      Checkboxes<br><br>
+      <input type="checkbox" name="os" value="windows">Windows<br>
+      <input type="checkbox" name="os" value="osx">OS X<br>
+      <input type="checkbox" name="os" value="linux">Linux<br><br>
+      Submit button to send form data:<br><br>
+      <input type="submit" value="Submit"><br>
+    </form>
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="text-muted">Copyright (C) Kevin Nguyen</p>
+  </div>
+</footer>
+</div>
+</body>
+</html>
