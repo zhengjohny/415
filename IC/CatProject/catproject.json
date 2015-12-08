@@ -1,0 +1,252 @@
+{
+	"application": {
+		"title": "Kitty Korner",
+
+		"theme": "bootswatch-flatly",
+
+		"collections": [
+			{
+				"name": "files",
+				"type": "file_collection",
+				"storage_adapters": ["gridfs"]
+			},
+
+			{
+				"name": "gallery",
+				"type": "collection",
+				"fields": [
+					{
+						"name": "title",
+						"title": "Title",
+						"required": true
+					},
+					{
+						"name": "fileId",
+						"title": "File",
+						"input": "file",
+						"file_collection": "files",
+						"file_container": "file"
+					}
+				]
+			}
+		],
+
+		"queries": [
+			{
+				"name": "current_user_data",
+				"collection": "users",
+				"filter": { "_id": "Meteor.userId()" },
+				"find_one": true
+			},
+			{
+				"name": "gallery",
+				"collection": "gallery",
+				"filter": {},
+				"options": {}
+			},
+			{
+				"name": "gallery_empty",
+				"collection": "gallery",
+				"filter": { "_id": null },
+				"options": {},
+				"find_one": true
+			}
+		],
+
+		"public_zone": {
+			"navbar_class": "navbar-inverse navbar-fixed-top",
+
+			"pages": [
+				{
+					"name": "home_public",
+					"title": "",
+					"components": [
+						{
+							"name": "home_jumbotron",
+							"title": "Welcome!",
+							"type": "jumbotron",
+							"text": "<b>Kitty Korner lets you browse Kitties and add them to your favorites!</b><br />",
+							"button_title": "Continue &raquo;",
+							"button_route": "Kitties"
+						}
+					]
+				},
+				{
+					"name": "Kitties",
+					"title": "",
+					"components": [
+						{
+							"name": "gallery",
+							"type": "custom_component",
+							"custom_template": "files/gallery",
+							"query_name": "gallery"
+						}
+					],
+					"pages": [
+						{
+							"name": "insert",
+							"components": [
+								{
+									"name": "form",
+									"title": "Add new file",
+									"type": "form",
+									"mode": "insert",
+									"query_name": "gallery_empty",
+									"submit_route": "Kitties",
+									"cancel_route": "Kitties"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "about_public",
+					"title": "This website was built using several different technologies, Bootstrap, Bootswatch, CSS, HTML, Iron Router, Meteor and Meteor Kitchen."
+				},
+				{ "name": "login", "template": "login" },
+				{ "name": "register", "template": "register" },
+				{ "name": "forgot_password", "template": "forgot_password" },
+				{ "name": "reset_password", "template": "reset_password", "route_params": ["resetPasswordToken"] }
+			],
+
+			"components": [
+				{
+					"name": "left_menu",
+					"type": "menu",
+					"class": "nav navbar-nav",
+					"dest_selector": "#menu",
+					"items": [
+						{ "title": "Home", "route": "home_public" },
+						{ "title": "Kitties", "route": "Kitties"}
+					]
+				},
+
+				{
+					"name": "right_menu",
+					"type": "menu",
+					"class": "nav navbar-nav navbar-right",
+					"dest_selector": "#menu",
+					"items": [
+						{ "title": "Register", "route": "register" },
+						{ "title": "Login", "route": "login" },
+						{ "title": "About", "route": "about_public"}
+					]
+				}
+			]
+		},
+
+		"private_zone": {
+			"navbar_class": "navbar-default navbar-fixed-top",
+
+			"pages": [
+				{
+					"name": "home_private",
+					"title": "Welcome {{userFullName}}!",
+					"components": [
+						{
+							"name": "home_jumbotron",
+							"title": "Welcome!",
+							"type": "jumbotron",
+							"text": "<b>Kitty Korner lets you browse Kitties and add them to your favorites!</b><br />",
+							"button_title": "Continue &raquo;",
+							"button_route": "Kitties_private"
+						}
+					]
+				},
+				
+				{
+					"name": "Kitties_private",
+					"title": "",
+					"components": [
+						{
+							"name": "gallery",
+							"type": "custom_component",
+							"custom_template": "files/gallery",
+							"query_name": "gallery"
+						}
+					],
+				},
+				
+				{
+					"name": "about_private",
+					"title": "This website was built using several different technologies, Bootstrap, Bootswatch, CSS, HTML, Iron Router, Meteor and Meteor Kitchen. /n If you have any questions, please contact the website builder at jslee7@hawaii.edu of (808) 213-1231"
+					
+				},
+
+				{
+					"name": "user_settings",
+					"pages": [
+						{
+							"name": "profile",
+							"components": [
+								{
+									"name": "edit_form",
+									"type": "form",
+									"mode": "update",
+									"title": "Edit your profile",
+									"submit_route": "user_settings.profile",
+									"query_name": "current_user_data",
+									"query_params": [],
+									"fields": [
+										{ "name": "profile.name", "title": "Name", "required": true },
+										{ "name": "profile.email", "title": "E-mail", "type": "email", "required": true },
+										{ "name": "profile.facebook", "title": "Facebook URL" },
+										{ "name": "profile.google", "title": "Google+ URL" },
+										{ "name": "profile.twitter", "title": "Twitter ID" },
+										{ "name": "profile.website", "title": "Website URL" }
+									]
+								}
+							]
+						},
+
+						{ "name": "change_pass", "template": "change_pass" }
+					],
+
+					"components": [
+						{
+							"name": "side_menu",
+							"type": "menu",
+							"class": "nav nav-stacked nav-pills",
+							"items": [
+								{ "title": "Profile", "route": "user_settings.profile" },
+								{ "title": "Change password", "route": "user_settings.change_pass" }
+							]
+						}
+					]
+				},
+
+				{ "name": "logout", "template": "logout" }
+			],
+
+			"components": [
+				{
+					"name": "left_menu",
+					"type": "menu",
+					"class": "nav navbar-nav",
+					"dest_selector": "#menu",
+					"items": [
+						{ "title": "Home", "route": "home_private" },
+						{ "title": "Kitties", "route": "Kitties_private"},
+						{ "title": "Favorites", "route": "favorites"}
+					]
+				},
+				{
+					"name": "right_menu",
+					"type": "menu",
+					"class": "nav navbar-nav navbar-right",
+					"dest_selector": "#menu",
+					"items": [
+						{
+							"title": "{{userEmail}}",
+							"items": [
+								{ "title": "Settings", "route": "user_settings" },
+								{ "title": "Logout", "route": "logout" },
+								{ "title": "About", "route": "about_private"}
+							]
+						}
+					]
+				}
+			]
+		}
+	}
+}

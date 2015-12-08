@@ -1,0 +1,81 @@
+<template name="HomeFree">
+	<div class="page-container container" id="content">
+		<div class="row" id="title_row">
+			<div class="col-md-12">
+				<div id="page_menu" class="pull-right">
+				</div>
+			</div>
+		</div>
+		<p id="page_text">
+			<h5>Hey developer, programming all day (and night) long?</h5><h4>Show us your tired face! :)</h4>
+		</p>
+		{{> HomeFreePhotoButton}}{{> HomeFreeForm}}{{> HomeFreeNotes}}
+	</div>
+</template>
+
+<template name="HomeFreePhotoButton">
+	<p style="margin: 20px 0;">
+		<button type="button" id="take-photo" class="btn btn-danger">
+			<span class="fa fa-camera">
+			</span>
+			Take a photo and share it!
+		</button>
+	</p>
+</template>
+
+<template name="HomeFreeForm">
+	<div id="home-free-form" class="">
+		<form role="form">
+			{{#if errorMessage}}
+			<div class="alert alert-warning">
+				{{errorMessage}}
+			</div>
+			{{/if}}				
+				
+			{{#if infoMessage}}
+			<div class="alert alert-success">
+				{{infoMessage}}
+			</div>
+			{{/if}}
+			<div class="form-group  field-text">
+				<label for="text">
+					Or enter a note:
+				</label>
+				<div class="input-div">
+					<textarea class="form-control" name="text"></textarea>
+					<span id="help-text" class="help-block">
+					</span>
+					<span id="error-text" class="help-block">
+					</span>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="submit-div">
+					<button id="form-submit-button" class="btn btn-success" type="submit">
+						<span class="fa fa-check">
+						</span>
+						Save
+					</button>
+				</div>
+			</div>
+		</form>
+	</div>
+</template>
+
+<template name="HomeFreeNotes">
+	{{#each notes}}
+	<div class="panel" style="padding: 0 10px;">
+		{{#if photo}}
+		<img src="{{photo}}" alt="Loading image..." style="margin-top: 10px; width: 100%; height: auto">
+		{{else}}
+		<p>
+			{{text}}
+		</p>
+		{{/if}}
+		<p class="text-muted">
+			{{name}}, {{livestamp createdAt}}
+		</p>
+	</div>
+	{{/each}}
+</template>
+

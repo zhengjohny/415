@@ -1,0 +1,50 @@
+<template name="KittiesPrivate">
+	<div class="page-container container" id="content">
+		<div class="row" id="title_row">
+			<div class="col-md-12">
+				<div id="page_menu" class="pull-right">
+				</div>
+			</div>
+		</div>
+		{{> KittiesPrivateGallery}}
+	</div>
+</template>
+
+<template name="KittiesPrivateGallery">
+	<h2>
+	</h2>
+	<p>
+	</p>
+	<hr />	{{#if gallery}}
+	<div class="row">
+		{{#each gallery}}
+		<div class="col-xs-12 col-sm-4 col-md-3" style="padding: 10px;">
+			<h4>
+			</h4>
+			{{#with file}}				
+						{{#if isImage}}
+			<a href="{{url}}" target="_blank">
+				<img src="{{url}}" width="150" height="150">
+			</a>
+			{{/if}}				
+				
+						{{#if isAudio}}
+			<audio src="{{url}}" width="100%" controls="controls">
+			</audio>
+			{{/if}}				
+				
+						{{#if isVideo}}
+			<video src="{{url}}" width="100%" controls="controls">
+			</video>
+			{{/if}}				
+					{{/with}}
+		</div>
+		{{/each}}
+	</div>
+	{{else}}
+	<div class="alert alert-info">
+		Gallery is empty :(
+	</div>
+	{{/if}}
+</template>
+
